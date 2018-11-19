@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.tcsl.canyin.dataprocessing.biz.dao.BizBsOtherFeePOMapper">
+  <resultMap id="BaseResultMap" type="cn.com.tcsl.canyin.summry.entity.BizBsOtherFeePO">
+    <id column="bs_id" jdbcType="BIGINT" property="bsId" />
+    <id column="type" jdbcType="SMALLINT" property="type" />
+    <result column="is_modify" jdbcType="BIT" property="isModify" />
+    <result column="minimum_charge" jdbcType="NUMERIC" property="minimumCharge" />
+    <result column="orig_fee" jdbcType="NUMERIC" property="origFee" />
+    <result column="disc_type" jdbcType="SMALLINT" property="discType" />
+    <result column="disc_scale" jdbcType="NUMERIC" property="discScale" />
+    <result column="disc_money" jdbcType="NUMERIC" property="discMoney" />
+    <result column="last_fee" jdbcType="NUMERIC" property="lastFee" />
+    <result column="disc_fix" jdbcType="NUMERIC" property="discFix" />
+    <result column="wipe_money" jdbcType="NUMERIC" property="wipeMoney" />
+    <result column="disc_total" jdbcType="NUMERIC" property="discTotal" />
+    <result column="last_total" jdbcType="NUMERIC" property="lastTotal" />
+    <result column="not_income_money" jdbcType="NUMERIC" property="notIncomeMoney" />
+    <result column="income_money" jdbcType="NUMERIC" property="incomeMoney" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="create_shop_id" jdbcType="INTEGER" property="createShopId" />
+    <result column="upload_flg" jdbcType="SMALLINT" property="uploadFlg" />
+    <result column="download_flg" jdbcType="SMALLINT" property="downloadFlg" />
+    <result column="auth_id" jdbcType="BIGINT" property="authId" />
+    <result column="free_money" jdbcType="NUMERIC" property="freeMoney" />
+    <result column="delflg" jdbcType="SMALLINT" property="delflg" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="creator_id" jdbcType="BIGINT" property="creatorId" />
+    <result column="modifier_id" jdbcType="BIGINT" property="modifierId" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from biz_bs_other_fee
+    where bs_id = #{bsId,jdbcType=BIGINT}
+      and type = #{type,jdbcType=SMALLINT}
+  </delete>
+  <insert id="insert" parameterType="cn.com.tcsl.canyin.summry.entity.BizBsOtherFeePO">
+    insert into biz_bs_other_fee (bs_id, type, is_modify, 
+      minimum_charge, orig_fee, disc_type, 
+      disc_scale, disc_money, last_fee, 
+      disc_fix, wipe_money, disc_total, 
+      last_total, not_income_money, income_money, 
+      modify_time, create_shop_id, upload_flg, 
+      download_flg, auth_id, free_money, 
+      delflg, create_time, creator_id, 
+      modifier_id)
+    values (#{bsId,jdbcType=BIGINT}, #{type,jdbcType=SMALLINT}, #{isModify,jdbcType=BIT}, 
+      #{minimumCharge,jdbcType=NUMERIC}, #{origFee,jdbcType=NUMERIC}, #{discType,jdbcType=SMALLINT}, 
+      #{discScale,jdbcType=NUMERIC}, #{discMoney,jdbcType=NUMERIC}, #{lastFee,jdbcType=NUMERIC}, 
+      #{discFix,jdbcType=NUMERIC}, #{wipeMoney,jdbcType=NUMERIC}, #{discTotal,jdbcType=NUMERIC}, 
+      #{lastTotal,jdbcType=NUMERIC}, #{notIncomeMoney,jdbcType=NUMERIC}, #{incomeMoney,jdbcType=NUMERIC}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{createShopId,jdbcType=INTEGER}, #{uploadFlg,jdbcType=SMALLINT}, 
+      #{downloadFlg,jdbcType=SMALLINT}, #{authId,jdbcType=BIGINT}, #{freeMoney,jdbcType=NUMERIC}, 
+      #{delflg,jdbcType=SMALLINT}, #{createTime,jdbcType=TIMESTAMP}, #{creatorId,jdbcType=BIGINT}, 
+      #{modifierId,jdbcType=BIGINT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.com.tcsl.canyin.summry.entity.BizBsOtherFeePO">
+    update biz_bs_other_fee
+    set is_modify = #{isModify,jdbcType=BIT},
+      minimum_charge = #{minimumCharge,jdbcType=NUMERIC},
+      orig_fee = #{origFee,jdbcType=NUMERIC},
+      disc_type = #{discType,jdbcType=SMALLINT},
+      disc_scale = #{discScale,jdbcType=NUMERIC},
+      disc_money = #{discMoney,jdbcType=NUMERIC},
+      last_fee = #{lastFee,jdbcType=NUMERIC},
+      disc_fix = #{discFix,jdbcType=NUMERIC},
+      wipe_money = #{wipeMoney,jdbcType=NUMERIC},
+      disc_total = #{discTotal,jdbcType=NUMERIC},
+      last_total = #{lastTotal,jdbcType=NUMERIC},
+      not_income_money = #{notIncomeMoney,jdbcType=NUMERIC},
+      income_money = #{incomeMoney,jdbcType=NUMERIC},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      create_shop_id = #{createShopId,jdbcType=INTEGER},
+      upload_flg = #{uploadFlg,jdbcType=SMALLINT},
+      download_flg = #{downloadFlg,jdbcType=SMALLINT},
+      auth_id = #{authId,jdbcType=BIGINT},
+      free_money = #{freeMoney,jdbcType=NUMERIC},
+      delflg = #{delflg,jdbcType=SMALLINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      creator_id = #{creatorId,jdbcType=BIGINT},
+      modifier_id = #{modifierId,jdbcType=BIGINT}
+    where bs_id = #{bsId,jdbcType=BIGINT}
+      and type = #{type,jdbcType=SMALLINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select bs_id, type, is_modify, minimum_charge, orig_fee, disc_type, disc_scale, disc_money, 
+    last_fee, disc_fix, wipe_money, disc_total, last_total, not_income_money, income_money, 
+    modify_time, create_shop_id, upload_flg, download_flg, auth_id, free_money, delflg, 
+    create_time, creator_id, modifier_id
+    from biz_bs_other_fee
+    where bs_id = #{bsId,jdbcType=BIGINT}
+      and type = #{type,jdbcType=SMALLINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select bs_id, type, is_modify, minimum_charge, orig_fee, disc_type, disc_scale, disc_money, 
+    last_fee, disc_fix, wipe_money, disc_total, last_total, not_income_money, income_money, 
+    modify_time, create_shop_id, upload_flg, download_flg, auth_id, free_money, delflg, 
+    create_time, creator_id, modifier_id
+    from biz_bs_other_fee
+  </select>
+</mapper>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.tcsl.canyin.dataprocessing.biz.dao.BizCoPOMapper">
+  <resultMap id="BaseResultMap" type="cn.com.tcsl.canyin.summry.entity.BizCoPO">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="bs_id" jdbcType="BIGINT" property="bsId" />
+    <result column="ss_id" jdbcType="BIGINT" property="ssId" />
+    <result column="sort_order" jdbcType="INTEGER" property="sortOrder" />
+    <result column="item_id" jdbcType="BIGINT" property="itemId" />
+    <result column="temp_item_name" jdbcType="VARCHAR" property="tempItemName" />
+    <result column="unit_id" jdbcType="BIGINT" property="unitId" />
+    <result column="orig_price" jdbcType="NUMERIC" property="origPrice" />
+    <result column="last_price" jdbcType="NUMERIC" property="lastPrice" />
+    <result column="make_fee" jdbcType="NUMERIC" property="makeFee" />
+    <result column="qty" jdbcType="NUMERIC" property="qty" />
+    <result column="subtotal" jdbcType="NUMERIC" property="subtotal" />
+    <result column="is_change_price" jdbcType="BIT" property="isChangePrice" />
+    <result column="disc_flg" jdbcType="SMALLINT" property="discFlg" />
+    <result column="item_type" jdbcType="SMALLINT" property="itemType" />
+    <result column="pkg_flg" jdbcType="SMALLINT" property="pkgFlg" />
+    <result column="pkg_type" jdbcType="SMALLINT" property="pkgType" />
+    <result column="pkg_sc_id" jdbcType="BIGINT" property="pkgScId" />
+    <result column="pkg_raise_price" jdbcType="NUMERIC" property="pkgRaisePrice" />
+    <result column="pkg_is_raise_by_qty" jdbcType="BIT" property="pkgIsRaiseByQty" />
+    <result column="rz_cancel_id" jdbcType="BIGINT" property="rzCancelId" />
+    <result column="serve_way_id" jdbcType="BIGINT" property="serveWayId" />
+    <result column="method_text" jdbcType="VARCHAR" property="methodText" />
+    <result column="create_shop_id" jdbcType="INTEGER" property="createShopId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="upload_flg" jdbcType="SMALLINT" property="uploadFlg" />
+    <result column="download_flg" jdbcType="SMALLINT" property="downloadFlg" />
+    <result column="creator_id" jdbcType="BIGINT" property="creatorId" />
+    <result column="item_size_id" jdbcType="BIGINT" property="itemSizeId" />
+    <result column="delflg" jdbcType="SMALLINT" property="delflg" />
+    <result column="cancel_type" jdbcType="SMALLINT" property="cancelType" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="modifier_id" jdbcType="BIGINT" property="modifierId" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from biz_co
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="cn.com.tcsl.canyin.summry.entity.BizCoPO">
+    insert into biz_co (id, bs_id, ss_id, 
+      sort_order, item_id, temp_item_name, 
+      unit_id, orig_price, last_price, 
+      make_fee, qty, subtotal, 
+      is_change_price, disc_flg, item_type, 
+      pkg_flg, pkg_type, pkg_sc_id, 
+      pkg_raise_price, pkg_is_raise_by_qty, rz_cancel_id, 
+      serve_way_id, method_text, create_shop_id, 
+      create_time, upload_flg, download_flg, 
+      creator_id, item_size_id, delflg, 
+      cancel_type, modify_time, modifier_id
+      )
+    values (#{id,jdbcType=BIGINT}, #{bsId,jdbcType=BIGINT}, #{ssId,jdbcType=BIGINT}, 
+      #{sortOrder,jdbcType=INTEGER}, #{itemId,jdbcType=BIGINT}, #{tempItemName,jdbcType=VARCHAR}, 
+      #{unitId,jdbcType=BIGINT}, #{origPrice,jdbcType=NUMERIC}, #{lastPrice,jdbcType=NUMERIC}, 
+      #{makeFee,jdbcType=NUMERIC}, #{qty,jdbcType=NUMERIC}, #{subtotal,jdbcType=NUMERIC}, 
+      #{isChangePrice,jdbcType=BIT}, #{discFlg,jdbcType=SMALLINT}, #{itemType,jdbcType=SMALLINT}, 
+      #{pkgFlg,jdbcType=SMALLINT}, #{pkgType,jdbcType=SMALLINT}, #{pkgScId,jdbcType=BIGINT}, 
+      #{pkgRaisePrice,jdbcType=NUMERIC}, #{pkgIsRaiseByQty,jdbcType=BIT}, #{rzCancelId,jdbcType=BIGINT}, 
+      #{serveWayId,jdbcType=BIGINT}, #{methodText,jdbcType=VARCHAR}, #{createShopId,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{uploadFlg,jdbcType=SMALLINT}, #{downloadFlg,jdbcType=SMALLINT}, 
+      #{creatorId,jdbcType=BIGINT}, #{itemSizeId,jdbcType=BIGINT}, #{delflg,jdbcType=SMALLINT}, 
+      #{cancelType,jdbcType=SMALLINT}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifierId,jdbcType=BIGINT}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.com.tcsl.canyin.summry.entity.BizCoPO">
+    update biz_co
+    set bs_id = #{bsId,jdbcType=BIGINT},
+      ss_id = #{ssId,jdbcType=BIGINT},
+      sort_order = #{sortOrder,jdbcType=INTEGER},
+      item_id = #{itemId,jdbcType=BIGINT},
+      temp_item_name = #{tempItemName,jdbcType=VARCHAR},
+      unit_id = #{unitId,jdbcType=BIGINT},
+      orig_price = #{origPrice,jdbcType=NUMERIC},
+      last_price = #{lastPrice,jdbcType=NUMERIC},
+      make_fee = #{makeFee,jdbcType=NUMERIC},
+      qty = #{qty,jdbcType=NUMERIC},
+      subtotal = #{subtotal,jdbcType=NUMERIC},
+      is_change_price = #{isChangePrice,jdbcType=BIT},
+      disc_flg = #{discFlg,jdbcType=SMALLINT},
+      item_type = #{itemType,jdbcType=SMALLINT},
+      pkg_flg = #{pkgFlg,jdbcType=SMALLINT},
+      pkg_type = #{pkgType,jdbcType=SMALLINT},
+      pkg_sc_id = #{pkgScId,jdbcType=BIGINT},
+      pkg_raise_price = #{pkgRaisePrice,jdbcType=NUMERIC},
+      pkg_is_raise_by_qty = #{pkgIsRaiseByQty,jdbcType=BIT},
+      rz_cancel_id = #{rzCancelId,jdbcType=BIGINT},
+      serve_way_id = #{serveWayId,jdbcType=BIGINT},
+      method_text = #{methodText,jdbcType=VARCHAR},
+      create_shop_id = #{createShopId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      upload_flg = #{uploadFlg,jdbcType=SMALLINT},
+      download_flg = #{downloadFlg,jdbcType=SMALLINT},
+      creator_id = #{creatorId,jdbcType=BIGINT},
+      item_size_id = #{itemSizeId,jdbcType=BIGINT},
+      delflg = #{delflg,jdbcType=SMALLINT},
+      cancel_type = #{cancelType,jdbcType=SMALLINT},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modifier_id = #{modifierId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, bs_id, ss_id, sort_order, item_id, temp_item_name, unit_id, orig_price, 
+    last_price, make_fee, qty, subtotal, is_change_price, disc_flg, item_type, pkg_flg, 
+    pkg_type, pkg_sc_id, pkg_raise_price, pkg_is_raise_by_qty, rz_cancel_id, serve_way_id, 
+    method_text, create_shop_id, create_time, upload_flg, download_flg, creator_id, item_size_id, 
+    delflg, cancel_type, modify_time, modifier_id
+    from biz_co
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, bs_id, ss_id, sort_order, item_id, temp_item_name, unit_id, orig_price, 
+    last_price, make_fee, qty, subtotal, is_change_price, disc_flg, item_type, pkg_flg, 
+    pkg_type, pkg_sc_id, pkg_raise_price, pkg_is_raise_by_qty, rz_cancel_id, serve_way_id, 
+    method_text, create_shop_id, create_time, upload_flg, download_flg, creator_id, item_size_id, 
+    delflg, cancel_type, modify_time, modifier_id
+    from biz_co
+  </select>
+</mapper>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.tcsl.canyin.dataprocessing.biz.dao.BizScMethodPOMapper">
+  <resultMap id="BaseResultMap" type="cn.com.tcsl.canyin.summry.entity.BizScMethodPO">
+    <id column="sc_id" jdbcType="BIGINT" property="scId" />
+    <id column="method_id" jdbcType="BIGINT" property="methodId" />
+    <result column="bs_id" jdbcType="BIGINT" property="bsId" />
+    <result column="fee" jdbcType="NUMERIC" property="fee" />
+    <result column="create_shop_id" jdbcType="INTEGER" property="createShopId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="upload_flg" jdbcType="SMALLINT" property="uploadFlg" />
+    <result column="download_flg" jdbcType="SMALLINT" property="downloadFlg" />
+    <result column="delflg" jdbcType="SMALLINT" property="delflg" />
+    <result column="qty" jdbcType="SMALLINT" property="qty" />
+    <result column="creator_id" jdbcType="BIGINT" property="creatorId" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="modifier_id" jdbcType="BIGINT" property="modifierId" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from biz_sc_method
+    where sc_id = #{scId,jdbcType=BIGINT}
+      and method_id = #{methodId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="cn.com.tcsl.canyin.summry.entity.BizScMethodPO">
+    insert into biz_sc_method (sc_id, method_id, bs_id, 
+      fee, create_shop_id, create_time, 
+      upload_flg, download_flg, delflg, 
+      qty, creator_id, modify_time, 
+      modifier_id)
+    values (#{scId,jdbcType=BIGINT}, #{methodId,jdbcType=BIGINT}, #{bsId,jdbcType=BIGINT}, 
+      #{fee,jdbcType=NUMERIC}, #{createShopId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{uploadFlg,jdbcType=SMALLINT}, #{downloadFlg,jdbcType=SMALLINT}, #{delflg,jdbcType=SMALLINT}, 
+      #{qty,jdbcType=SMALLINT}, #{creatorId,jdbcType=BIGINT}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifierId,jdbcType=BIGINT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.com.tcsl.canyin.summry.entity.BizScMethodPO">
+    update biz_sc_method
+    set bs_id = #{bsId,jdbcType=BIGINT},
+      fee = #{fee,jdbcType=NUMERIC},
+      create_shop_id = #{createShopId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      upload_flg = #{uploadFlg,jdbcType=SMALLINT},
+      download_flg = #{downloadFlg,jdbcType=SMALLINT},
+      delflg = #{delflg,jdbcType=SMALLINT},
+      qty = #{qty,jdbcType=SMALLINT},
+      creator_id = #{creatorId,jdbcType=BIGINT},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modifier_id = #{modifierId,jdbcType=BIGINT}
+    where sc_id = #{scId,jdbcType=BIGINT}
+      and method_id = #{methodId,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select sc_id, method_id, bs_id, fee, create_shop_id, create_time, upload_flg, download_flg, 
+    delflg, qty, creator_id, modify_time, modifier_id
+    from biz_sc_method
+    where sc_id = #{scId,jdbcType=BIGINT}
+      and method_id = #{methodId,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select sc_id, method_id, bs_id, fee, create_shop_id, create_time, upload_flg, download_flg, 
+    delflg, qty, creator_id, modify_time, modifier_id
+    from biz_sc_method
+  </select>
+</mapper>

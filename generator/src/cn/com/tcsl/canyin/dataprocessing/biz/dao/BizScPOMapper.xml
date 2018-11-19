@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.tcsl.canyin.dataprocessing.biz.dao.BizScPOMapper">
+  <resultMap id="BaseResultMap" type="cn.com.tcsl.canyin.summry.entity.BizScPO">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="bs_id" jdbcType="BIGINT" property="bsId" />
+    <result column="ss_id" jdbcType="BIGINT" property="ssId" />
+    <result column="ts_id" jdbcType="BIGINT" property="tsId" />
+    <result column="shift_id" jdbcType="BIGINT" property="shiftId" />
+    <result column="settle_time" jdbcType="TIMESTAMP" property="settleTime" />
+    <result column="is_settled" jdbcType="BIT" property="isSettled" />
+    <result column="settle_biz_date" jdbcType="DATE" property="settleBizDate" />
+    <result column="settle_biz_month" jdbcType="VARCHAR" property="settleBizMonth" />
+    <result column="sort_order" jdbcType="INTEGER" property="sortOrder" />
+    <result column="item_id" jdbcType="BIGINT" property="itemId" />
+    <result column="temp_item_name" jdbcType="VARCHAR" property="tempItemName" />
+    <result column="unit_id" jdbcType="BIGINT" property="unitId" />
+    <result column="cost_price" jdbcType="NUMERIC" property="costPrice" />
+    <result column="orig_price" jdbcType="NUMERIC" property="origPrice" />
+    <result column="last_price" jdbcType="NUMERIC" property="lastPrice" />
+    <result column="is_change_price" jdbcType="BIT" property="isChangePrice" />
+    <result column="make_fee" jdbcType="NUMERIC" property="makeFee" />
+    <result column="orig_make_fee" jdbcType="NUMERIC" property="origMakeFee" />
+    <result column="last_make_fee" jdbcType="NUMERIC" property="lastMakeFee" />
+    <result column="orig_qty" jdbcType="NUMERIC" property="origQty" />
+    <result column="last_qty" jdbcType="NUMERIC" property="lastQty" />
+    <result column="orig_subtotal" jdbcType="NUMERIC" property="origSubtotal" />
+    <result column="disc_type" jdbcType="SMALLINT" property="discType" />
+    <result column="disc_flg" jdbcType="SMALLINT" property="discFlg" />
+    <result column="disc_scale" jdbcType="NUMERIC" property="discScale" />
+    <result column="disc_money" jdbcType="NUMERIC" property="discMoney" />
+    <result column="last_subtotal" jdbcType="NUMERIC" property="lastSubtotal" />
+    <result column="present_money" jdbcType="NUMERIC" property="presentMoney" />
+    <result column="disc_fix" jdbcType="NUMERIC" property="discFix" />
+    <result column="wipe_money" jdbcType="NUMERIC" property="wipeMoney" />
+    <result column="disc_total" jdbcType="NUMERIC" property="discTotal" />
+    <result column="last_total" jdbcType="NUMERIC" property="lastTotal" />
+    <result column="not_income_money" jdbcType="NUMERIC" property="notIncomeMoney" />
+    <result column="income_money" jdbcType="NUMERIC" property="incomeMoney" />
+    <result column="cost_total" jdbcType="NUMERIC" property="costTotal" />
+    <result column="item_type" jdbcType="SMALLINT" property="itemType" />
+    <result column="pkg_flg" jdbcType="SMALLINT" property="pkgFlg" />
+    <result column="pkg_type" jdbcType="SMALLINT" property="pkgType" />
+    <result column="pkg_sc_id" jdbcType="BIGINT" property="pkgScId" />
+    <result column="pkg_raise_price" jdbcType="NUMERIC" property="pkgRaisePrice" />
+    <result column="pkg_is_raise_by_qty" jdbcType="BIT" property="pkgIsRaiseByQty" />
+    <result column="rz_free_id" jdbcType="BIGINT" property="rzFreeId" />
+    <result column="serve_way_id" jdbcType="BIGINT" property="serveWayId" />
+    <result column="method_text" jdbcType="VARCHAR" property="methodText" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="modifier_id" jdbcType="BIGINT" property="modifierId" />
+    <result column="create_shop_id" jdbcType="INTEGER" property="createShopId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="upload_flg" jdbcType="SMALLINT" property="uploadFlg" />
+    <result column="download_flg" jdbcType="SMALLINT" property="downloadFlg" />
+    <result column="delflg" jdbcType="SMALLINT" property="delflg" />
+    <result column="is_team_sc" jdbcType="BIT" property="isTeamSc" />
+    <result column="item_size_id" jdbcType="BIGINT" property="itemSizeId" />
+    <result column="source_sc_id" jdbcType="BIGINT" property="sourceScId" />
+    <result column="is_buffet" jdbcType="BIT" property="isBuffet" />
+    <result column="barcode" jdbcType="BIGINT" property="barcode" />
+    <result column="is_confirm_weigh" jdbcType="BIT" property="isConfirmWeigh" />
+    <result column="discount_give_item_flg" jdbcType="BIT" property="discountGiveItemFlg" />
+    <result column="sale_type_id" jdbcType="SMALLINT" property="saleTypeId" />
+    <result column="tax_money" jdbcType="NUMERIC" property="taxMoney" />
+    <result column="sale_price" jdbcType="NUMERIC" property="salePrice" />
+    <result column="member_price" jdbcType="NUMERIC" property="memberPrice" />
+    <result column="promote_price" jdbcType="NUMERIC" property="promotePrice" />
+    <result column="price_type" jdbcType="SMALLINT" property="priceType" />
+    <result column="last_item_price" jdbcType="NUMERIC" property="lastItemPrice" />
+    <result column="member_money" jdbcType="NUMERIC" property="memberMoney" />
+    <result column="promote_money" jdbcType="NUMERIC" property="promoteMoney" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="settle_shift_id" jdbcType="BIGINT" property="settleShiftId" />
+    <result column="point_id" jdbcType="BIGINT" property="pointId" />
+    <result column="create_pos_id" jdbcType="BIGINT" property="createPosId" />
+    <result column="waiter_id" jdbcType="BIGINT" property="waiterId" />
+    <result column="creator_id" jdbcType="BIGINT" property="creatorId" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from biz_sc
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="cn.com.tcsl.canyin.summry.entity.BizScPO">
+    insert into biz_sc (id, bs_id, ss_id, 
+      ts_id, shift_id, settle_time, 
+      is_settled, settle_biz_date, settle_biz_month, 
+      sort_order, item_id, temp_item_name, 
+      unit_id, cost_price, orig_price, 
+      last_price, is_change_price, make_fee, 
+      orig_make_fee, last_make_fee, orig_qty, 
+      last_qty, orig_subtotal, disc_type, 
+      disc_flg, disc_scale, disc_money, 
+      last_subtotal, present_money, disc_fix, 
+      wipe_money, disc_total, last_total, 
+      not_income_money, income_money, cost_total, 
+      item_type, pkg_flg, pkg_type, 
+      pkg_sc_id, pkg_raise_price, pkg_is_raise_by_qty, 
+      rz_free_id, serve_way_id, method_text, 
+      modify_time, modifier_id, create_shop_id, 
+      create_time, upload_flg, download_flg, 
+      delflg, is_team_sc, item_size_id, 
+      source_sc_id, is_buffet, barcode, 
+      is_confirm_weigh, discount_give_item_flg, sale_type_id, 
+      tax_money, sale_price, member_price, 
+      promote_price, price_type, last_item_price, 
+      member_money, promote_money, code, 
+      settle_shift_id, point_id, create_pos_id, 
+      waiter_id, creator_id)
+    values (#{id,jdbcType=BIGINT}, #{bsId,jdbcType=BIGINT}, #{ssId,jdbcType=BIGINT}, 
+      #{tsId,jdbcType=BIGINT}, #{shiftId,jdbcType=BIGINT}, #{settleTime,jdbcType=TIMESTAMP}, 
+      #{isSettled,jdbcType=BIT}, #{settleBizDate,jdbcType=DATE}, #{settleBizMonth,jdbcType=VARCHAR}, 
+      #{sortOrder,jdbcType=INTEGER}, #{itemId,jdbcType=BIGINT}, #{tempItemName,jdbcType=VARCHAR}, 
+      #{unitId,jdbcType=BIGINT}, #{costPrice,jdbcType=NUMERIC}, #{origPrice,jdbcType=NUMERIC}, 
+      #{lastPrice,jdbcType=NUMERIC}, #{isChangePrice,jdbcType=BIT}, #{makeFee,jdbcType=NUMERIC}, 
+      #{origMakeFee,jdbcType=NUMERIC}, #{lastMakeFee,jdbcType=NUMERIC}, #{origQty,jdbcType=NUMERIC}, 
+      #{lastQty,jdbcType=NUMERIC}, #{origSubtotal,jdbcType=NUMERIC}, #{discType,jdbcType=SMALLINT}, 
+      #{discFlg,jdbcType=SMALLINT}, #{discScale,jdbcType=NUMERIC}, #{discMoney,jdbcType=NUMERIC}, 
+      #{lastSubtotal,jdbcType=NUMERIC}, #{presentMoney,jdbcType=NUMERIC}, #{discFix,jdbcType=NUMERIC}, 
+      #{wipeMoney,jdbcType=NUMERIC}, #{discTotal,jdbcType=NUMERIC}, #{lastTotal,jdbcType=NUMERIC}, 
+      #{notIncomeMoney,jdbcType=NUMERIC}, #{incomeMoney,jdbcType=NUMERIC}, #{costTotal,jdbcType=NUMERIC}, 
+      #{itemType,jdbcType=SMALLINT}, #{pkgFlg,jdbcType=SMALLINT}, #{pkgType,jdbcType=SMALLINT}, 
+      #{pkgScId,jdbcType=BIGINT}, #{pkgRaisePrice,jdbcType=NUMERIC}, #{pkgIsRaiseByQty,jdbcType=BIT}, 
+      #{rzFreeId,jdbcType=BIGINT}, #{serveWayId,jdbcType=BIGINT}, #{methodText,jdbcType=VARCHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifierId,jdbcType=BIGINT}, #{createShopId,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{uploadFlg,jdbcType=SMALLINT}, #{downloadFlg,jdbcType=SMALLINT}, 
+      #{delflg,jdbcType=SMALLINT}, #{isTeamSc,jdbcType=BIT}, #{itemSizeId,jdbcType=BIGINT}, 
+      #{sourceScId,jdbcType=BIGINT}, #{isBuffet,jdbcType=BIT}, #{barcode,jdbcType=BIGINT}, 
+      #{isConfirmWeigh,jdbcType=BIT}, #{discountGiveItemFlg,jdbcType=BIT}, #{saleTypeId,jdbcType=SMALLINT}, 
+      #{taxMoney,jdbcType=NUMERIC}, #{salePrice,jdbcType=NUMERIC}, #{memberPrice,jdbcType=NUMERIC}, 
+      #{promotePrice,jdbcType=NUMERIC}, #{priceType,jdbcType=SMALLINT}, #{lastItemPrice,jdbcType=NUMERIC}, 
+      #{memberMoney,jdbcType=NUMERIC}, #{promoteMoney,jdbcType=NUMERIC}, #{code,jdbcType=VARCHAR}, 
+      #{settleShiftId,jdbcType=BIGINT}, #{pointId,jdbcType=BIGINT}, #{createPosId,jdbcType=BIGINT}, 
+      #{waiterId,jdbcType=BIGINT}, #{creatorId,jdbcType=BIGINT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.com.tcsl.canyin.summry.entity.BizScPO">
+    update biz_sc
+    set bs_id = #{bsId,jdbcType=BIGINT},
+      ss_id = #{ssId,jdbcType=BIGINT},
+      ts_id = #{tsId,jdbcType=BIGINT},
+      shift_id = #{shiftId,jdbcType=BIGINT},
+      settle_time = #{settleTime,jdbcType=TIMESTAMP},
+      is_settled = #{isSettled,jdbcType=BIT},
+      settle_biz_date = #{settleBizDate,jdbcType=DATE},
+      settle_biz_month = #{settleBizMonth,jdbcType=VARCHAR},
+      sort_order = #{sortOrder,jdbcType=INTEGER},
+      item_id = #{itemId,jdbcType=BIGINT},
+      temp_item_name = #{tempItemName,jdbcType=VARCHAR},
+      unit_id = #{unitId,jdbcType=BIGINT},
+      cost_price = #{costPrice,jdbcType=NUMERIC},
+      orig_price = #{origPrice,jdbcType=NUMERIC},
+      last_price = #{lastPrice,jdbcType=NUMERIC},
+      is_change_price = #{isChangePrice,jdbcType=BIT},
+      make_fee = #{makeFee,jdbcType=NUMERIC},
+      orig_make_fee = #{origMakeFee,jdbcType=NUMERIC},
+      last_make_fee = #{lastMakeFee,jdbcType=NUMERIC},
+      orig_qty = #{origQty,jdbcType=NUMERIC},
+      last_qty = #{lastQty,jdbcType=NUMERIC},
+      orig_subtotal = #{origSubtotal,jdbcType=NUMERIC},
+      disc_type = #{discType,jdbcType=SMALLINT},
+      disc_flg = #{discFlg,jdbcType=SMALLINT},
+      disc_scale = #{discScale,jdbcType=NUMERIC},
+      disc_money = #{discMoney,jdbcType=NUMERIC},
+      last_subtotal = #{lastSubtotal,jdbcType=NUMERIC},
+      present_money = #{presentMoney,jdbcType=NUMERIC},
+      disc_fix = #{discFix,jdbcType=NUMERIC},
+      wipe_money = #{wipeMoney,jdbcType=NUMERIC},
+      disc_total = #{discTotal,jdbcType=NUMERIC},
+      last_total = #{lastTotal,jdbcType=NUMERIC},
+      not_income_money = #{notIncomeMoney,jdbcType=NUMERIC},
+      income_money = #{incomeMoney,jdbcType=NUMERIC},
+      cost_total = #{costTotal,jdbcType=NUMERIC},
+      item_type = #{itemType,jdbcType=SMALLINT},
+      pkg_flg = #{pkgFlg,jdbcType=SMALLINT},
+      pkg_type = #{pkgType,jdbcType=SMALLINT},
+      pkg_sc_id = #{pkgScId,jdbcType=BIGINT},
+      pkg_raise_price = #{pkgRaisePrice,jdbcType=NUMERIC},
+      pkg_is_raise_by_qty = #{pkgIsRaiseByQty,jdbcType=BIT},
+      rz_free_id = #{rzFreeId,jdbcType=BIGINT},
+      serve_way_id = #{serveWayId,jdbcType=BIGINT},
+      method_text = #{methodText,jdbcType=VARCHAR},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modifier_id = #{modifierId,jdbcType=BIGINT},
+      create_shop_id = #{createShopId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      upload_flg = #{uploadFlg,jdbcType=SMALLINT},
+      download_flg = #{downloadFlg,jdbcType=SMALLINT},
+      delflg = #{delflg,jdbcType=SMALLINT},
+      is_team_sc = #{isTeamSc,jdbcType=BIT},
+      item_size_id = #{itemSizeId,jdbcType=BIGINT},
+      source_sc_id = #{sourceScId,jdbcType=BIGINT},
+      is_buffet = #{isBuffet,jdbcType=BIT},
+      barcode = #{barcode,jdbcType=BIGINT},
+      is_confirm_weigh = #{isConfirmWeigh,jdbcType=BIT},
+      discount_give_item_flg = #{discountGiveItemFlg,jdbcType=BIT},
+      sale_type_id = #{saleTypeId,jdbcType=SMALLINT},
+      tax_money = #{taxMoney,jdbcType=NUMERIC},
+      sale_price = #{salePrice,jdbcType=NUMERIC},
+      member_price = #{memberPrice,jdbcType=NUMERIC},
+      promote_price = #{promotePrice,jdbcType=NUMERIC},
+      price_type = #{priceType,jdbcType=SMALLINT},
+      last_item_price = #{lastItemPrice,jdbcType=NUMERIC},
+      member_money = #{memberMoney,jdbcType=NUMERIC},
+      promote_money = #{promoteMoney,jdbcType=NUMERIC},
+      code = #{code,jdbcType=VARCHAR},
+      settle_shift_id = #{settleShiftId,jdbcType=BIGINT},
+      point_id = #{pointId,jdbcType=BIGINT},
+      create_pos_id = #{createPosId,jdbcType=BIGINT},
+      waiter_id = #{waiterId,jdbcType=BIGINT},
+      creator_id = #{creatorId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, bs_id, ss_id, ts_id, shift_id, settle_time, is_settled, settle_biz_date, 
+    settle_biz_month, sort_order, item_id, temp_item_name, unit_id, cost_price, orig_price, 
+    last_price, is_change_price, make_fee, orig_make_fee, last_make_fee, orig_qty, last_qty, 
+    orig_subtotal, disc_type, disc_flg, disc_scale, disc_money, last_subtotal, present_money, 
+    disc_fix, wipe_money, disc_total, last_total, not_income_money, income_money, cost_total, 
+    item_type, pkg_flg, pkg_type, pkg_sc_id, pkg_raise_price, pkg_is_raise_by_qty, rz_free_id, 
+    serve_way_id, method_text, modify_time, modifier_id, create_shop_id, create_time, 
+    upload_flg, download_flg, delflg, is_team_sc, item_size_id, source_sc_id, is_buffet, 
+    barcode, is_confirm_weigh, discount_give_item_flg, sale_type_id, tax_money, sale_price, 
+    member_price, promote_price, price_type, last_item_price, member_money, promote_money, 
+    code, settle_shift_id, point_id, create_pos_id, waiter_id, creator_id
+    from biz_sc
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, bs_id, ss_id, ts_id, shift_id, settle_time, is_settled, settle_biz_date, 
+    settle_biz_month, sort_order, item_id, temp_item_name, unit_id, cost_price, orig_price, 
+    last_price, is_change_price, make_fee, orig_make_fee, last_make_fee, orig_qty, last_qty, 
+    orig_subtotal, disc_type, disc_flg, disc_scale, disc_money, last_subtotal, present_money, 
+    disc_fix, wipe_money, disc_total, last_total, not_income_money, income_money, cost_total, 
+    item_type, pkg_flg, pkg_type, pkg_sc_id, pkg_raise_price, pkg_is_raise_by_qty, rz_free_id, 
+    serve_way_id, method_text, modify_time, modifier_id, create_shop_id, create_time, 
+    upload_flg, download_flg, delflg, is_team_sc, item_size_id, source_sc_id, is_buffet, 
+    barcode, is_confirm_weigh, discount_give_item_flg, sale_type_id, tax_money, sale_price, 
+    member_price, promote_price, price_type, last_item_price, member_money, promote_money, 
+    code, settle_shift_id, point_id, create_pos_id, waiter_id, creator_id
+    from biz_sc
+  </select>
+</mapper>

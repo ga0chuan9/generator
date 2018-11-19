@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.tcsl.canyin.dataprocessing.biz.dao.BizTsPOMapper">
+  <resultMap id="BaseResultMap" type="cn.com.tcsl.canyin.summry.entity.BizTsPO">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="bs_id" jdbcType="BIGINT" property="bsId" />
+    <result column="shift_id" jdbcType="BIGINT" property="shiftId" />
+    <result column="settle_time" jdbcType="TIMESTAMP" property="settleTime" />
+    <result column="settle_biz_date" jdbcType="DATE" property="settleBizDate" />
+    <result column="settle_biz_month" jdbcType="VARCHAR" property="settleBizMonth" />
+    <result column="last_total" jdbcType="NUMERIC" property="lastTotal" />
+    <result column="take_money" jdbcType="NUMERIC" property="takeMoney" />
+    <result column="give_change" jdbcType="NUMERIC" property="giveChange" />
+    <result column="print_count" jdbcType="INTEGER" property="printCount" />
+    <result column="is_give_invoice" jdbcType="BIT" property="isGiveInvoice" />
+    <result column="invoice_money" jdbcType="NUMERIC" property="invoiceMoney" />
+    <result column="settle_info" jdbcType="VARCHAR" property="settleInfo" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="sale_type_id" jdbcType="SMALLINT" property="saleTypeId" />
+    <result column="sub_system_id" jdbcType="INTEGER" property="subSystemId" />
+    <result column="create_pos_id" jdbcType="BIGINT" property="createPosId" />
+    <result column="create_shop_id" jdbcType="INTEGER" property="createShopId" />
+    <result column="creator_id" jdbcType="BIGINT" property="creatorId" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="modifier_id" jdbcType="BIGINT" property="modifierId" />
+    <result column="upload_flg" jdbcType="SMALLINT" property="uploadFlg" />
+    <result column="download_flg" jdbcType="SMALLINT" property="downloadFlg" />
+    <result column="settle_state" jdbcType="SMALLINT" property="settleState" />
+    <result column="order_code" jdbcType="VARCHAR" property="orderCode" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="delflg" jdbcType="SMALLINT" property="delflg" />
+    <result column="payment_flg" jdbcType="BIT" property="paymentFlg" />
+    <result column="tearing_invoice_money" jdbcType="NUMERIC" property="tearingInvoiceMoney" />
+    <result column="settle_way_type" jdbcType="SMALLINT" property="settleWayType" />
+    <result column="invoice_time" jdbcType="TIMESTAMP" property="invoiceTime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from biz_ts
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="cn.com.tcsl.canyin.summry.entity.BizTsPO">
+    insert into biz_ts (id, code, bs_id, 
+      shift_id, settle_time, settle_biz_date, 
+      settle_biz_month, last_total, take_money, 
+      give_change, print_count, is_give_invoice, 
+      invoice_money, settle_info, remark, 
+      sale_type_id, sub_system_id, create_pos_id, 
+      create_shop_id, creator_id, modify_time, 
+      modifier_id, upload_flg, download_flg, 
+      settle_state, order_code, create_time, 
+      delflg, payment_flg, tearing_invoice_money, 
+      settle_way_type, invoice_time)
+    values (#{id,jdbcType=BIGINT}, #{code,jdbcType=VARCHAR}, #{bsId,jdbcType=BIGINT}, 
+      #{shiftId,jdbcType=BIGINT}, #{settleTime,jdbcType=TIMESTAMP}, #{settleBizDate,jdbcType=DATE}, 
+      #{settleBizMonth,jdbcType=VARCHAR}, #{lastTotal,jdbcType=NUMERIC}, #{takeMoney,jdbcType=NUMERIC}, 
+      #{giveChange,jdbcType=NUMERIC}, #{printCount,jdbcType=INTEGER}, #{isGiveInvoice,jdbcType=BIT}, 
+      #{invoiceMoney,jdbcType=NUMERIC}, #{settleInfo,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{saleTypeId,jdbcType=SMALLINT}, #{subSystemId,jdbcType=INTEGER}, #{createPosId,jdbcType=BIGINT}, 
+      #{createShopId,jdbcType=INTEGER}, #{creatorId,jdbcType=BIGINT}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{modifierId,jdbcType=BIGINT}, #{uploadFlg,jdbcType=SMALLINT}, #{downloadFlg,jdbcType=SMALLINT}, 
+      #{settleState,jdbcType=SMALLINT}, #{orderCode,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{delflg,jdbcType=SMALLINT}, #{paymentFlg,jdbcType=BIT}, #{tearingInvoiceMoney,jdbcType=NUMERIC}, 
+      #{settleWayType,jdbcType=SMALLINT}, #{invoiceTime,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.com.tcsl.canyin.summry.entity.BizTsPO">
+    update biz_ts
+    set code = #{code,jdbcType=VARCHAR},
+      bs_id = #{bsId,jdbcType=BIGINT},
+      shift_id = #{shiftId,jdbcType=BIGINT},
+      settle_time = #{settleTime,jdbcType=TIMESTAMP},
+      settle_biz_date = #{settleBizDate,jdbcType=DATE},
+      settle_biz_month = #{settleBizMonth,jdbcType=VARCHAR},
+      last_total = #{lastTotal,jdbcType=NUMERIC},
+      take_money = #{takeMoney,jdbcType=NUMERIC},
+      give_change = #{giveChange,jdbcType=NUMERIC},
+      print_count = #{printCount,jdbcType=INTEGER},
+      is_give_invoice = #{isGiveInvoice,jdbcType=BIT},
+      invoice_money = #{invoiceMoney,jdbcType=NUMERIC},
+      settle_info = #{settleInfo,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      sale_type_id = #{saleTypeId,jdbcType=SMALLINT},
+      sub_system_id = #{subSystemId,jdbcType=INTEGER},
+      create_pos_id = #{createPosId,jdbcType=BIGINT},
+      create_shop_id = #{createShopId,jdbcType=INTEGER},
+      creator_id = #{creatorId,jdbcType=BIGINT},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modifier_id = #{modifierId,jdbcType=BIGINT},
+      upload_flg = #{uploadFlg,jdbcType=SMALLINT},
+      download_flg = #{downloadFlg,jdbcType=SMALLINT},
+      settle_state = #{settleState,jdbcType=SMALLINT},
+      order_code = #{orderCode,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      delflg = #{delflg,jdbcType=SMALLINT},
+      payment_flg = #{paymentFlg,jdbcType=BIT},
+      tearing_invoice_money = #{tearingInvoiceMoney,jdbcType=NUMERIC},
+      settle_way_type = #{settleWayType,jdbcType=SMALLINT},
+      invoice_time = #{invoiceTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, code, bs_id, shift_id, settle_time, settle_biz_date, settle_biz_month, 
+    last_total, take_money, give_change, print_count, is_give_invoice, invoice_money, 
+    settle_info, remark, sale_type_id, sub_system_id, create_pos_id, create_shop_id, 
+    creator_id, modify_time, modifier_id, upload_flg, download_flg, settle_state, order_code, 
+    create_time, delflg, payment_flg, tearing_invoice_money, settle_way_type, invoice_time
+    from biz_ts
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, code, bs_id, shift_id, settle_time, settle_biz_date, settle_biz_month, 
+    last_total, take_money, give_change, print_count, is_give_invoice, invoice_money, 
+    settle_info, remark, sale_type_id, sub_system_id, create_pos_id, create_shop_id, 
+    creator_id, modify_time, modifier_id, upload_flg, download_flg, settle_state, order_code, 
+    create_time, delflg, payment_flg, tearing_invoice_money, settle_way_type, invoice_time
+    from biz_ts
+  </select>
+</mapper>

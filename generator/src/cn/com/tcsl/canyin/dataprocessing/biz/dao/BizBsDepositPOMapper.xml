@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.tcsl.canyin.dataprocessing.biz.dao.BizBsDepositPOMapper">
+  <resultMap id="BaseResultMap" type="cn.com.tcsl.canyin.summry.entity.BizBsDepositPO">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="bs_id" jdbcType="BIGINT" property="bsId" />
+    <result column="type" jdbcType="SMALLINT" property="type" />
+    <result column="payway_id" jdbcType="BIGINT" property="paywayId" />
+    <result column="deposit" jdbcType="NUMERIC" property="deposit" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="origin" jdbcType="SMALLINT" property="origin" />
+    <result column="relation_id" jdbcType="BIGINT" property="relationId" />
+    <result column="sub_system_id" jdbcType="INTEGER" property="subSystemId" />
+    <result column="create_pos_id" jdbcType="BIGINT" property="createPosId" />
+    <result column="create_shop_id" jdbcType="INTEGER" property="createShopId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="creator_id" jdbcType="BIGINT" property="creatorId" />
+    <result column="upload_flg" jdbcType="SMALLINT" property="uploadFlg" />
+    <result column="download_flg" jdbcType="SMALLINT" property="downloadFlg" />
+    <result column="delflg" jdbcType="SMALLINT" property="delflg" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="modifier_id" jdbcType="BIGINT" property="modifierId" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from biz_bs_deposit
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="cn.com.tcsl.canyin.summry.entity.BizBsDepositPO">
+    insert into biz_bs_deposit (id, bs_id, type, 
+      payway_id, deposit, remark, 
+      origin, relation_id, sub_system_id, 
+      create_pos_id, create_shop_id, create_time, 
+      creator_id, upload_flg, download_flg, 
+      delflg, modify_time, modifier_id
+      )
+    values (#{id,jdbcType=BIGINT}, #{bsId,jdbcType=BIGINT}, #{type,jdbcType=SMALLINT}, 
+      #{paywayId,jdbcType=BIGINT}, #{deposit,jdbcType=NUMERIC}, #{remark,jdbcType=VARCHAR}, 
+      #{origin,jdbcType=SMALLINT}, #{relationId,jdbcType=BIGINT}, #{subSystemId,jdbcType=INTEGER}, 
+      #{createPosId,jdbcType=BIGINT}, #{createShopId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{creatorId,jdbcType=BIGINT}, #{uploadFlg,jdbcType=SMALLINT}, #{downloadFlg,jdbcType=SMALLINT}, 
+      #{delflg,jdbcType=SMALLINT}, #{modifyTime,jdbcType=TIMESTAMP}, #{modifierId,jdbcType=BIGINT}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.com.tcsl.canyin.summry.entity.BizBsDepositPO">
+    update biz_bs_deposit
+    set bs_id = #{bsId,jdbcType=BIGINT},
+      type = #{type,jdbcType=SMALLINT},
+      payway_id = #{paywayId,jdbcType=BIGINT},
+      deposit = #{deposit,jdbcType=NUMERIC},
+      remark = #{remark,jdbcType=VARCHAR},
+      origin = #{origin,jdbcType=SMALLINT},
+      relation_id = #{relationId,jdbcType=BIGINT},
+      sub_system_id = #{subSystemId,jdbcType=INTEGER},
+      create_pos_id = #{createPosId,jdbcType=BIGINT},
+      create_shop_id = #{createShopId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      creator_id = #{creatorId,jdbcType=BIGINT},
+      upload_flg = #{uploadFlg,jdbcType=SMALLINT},
+      download_flg = #{downloadFlg,jdbcType=SMALLINT},
+      delflg = #{delflg,jdbcType=SMALLINT},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      modifier_id = #{modifierId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, bs_id, type, payway_id, deposit, remark, origin, relation_id, sub_system_id, 
+    create_pos_id, create_shop_id, create_time, creator_id, upload_flg, download_flg, 
+    delflg, modify_time, modifier_id
+    from biz_bs_deposit
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, bs_id, type, payway_id, deposit, remark, origin, relation_id, sub_system_id, 
+    create_pos_id, create_shop_id, create_time, creator_id, upload_flg, download_flg, 
+    delflg, modify_time, modifier_id
+    from biz_bs_deposit
+  </select>
+</mapper>

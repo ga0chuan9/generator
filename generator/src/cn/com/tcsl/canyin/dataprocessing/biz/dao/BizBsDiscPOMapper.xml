@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.tcsl.canyin.dataprocessing.biz.dao.BizBsDiscPOMapper">
+  <resultMap id="BaseResultMap" type="cn.com.tcsl.canyin.summry.entity.BizBsDiscPO">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="bs_id" jdbcType="BIGINT" property="bsId" />
+    <result column="disc_type" jdbcType="SMALLINT" property="discType" />
+    <result column="disc_scale" jdbcType="NUMERIC" property="discScale" />
+    <result column="disc_money" jdbcType="NUMERIC" property="discMoney" />
+    <result column="dp_id" jdbcType="BIGINT" property="dpId" />
+    <result column="auth_emp_id" jdbcType="BIGINT" property="authEmpId" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="create_shop_id" jdbcType="INTEGER" property="createShopId" />
+    <result column="upload_flg" jdbcType="SMALLINT" property="uploadFlg" />
+    <result column="download_flg" jdbcType="SMALLINT" property="downloadFlg" />
+    <result column="delflg" jdbcType="SMALLINT" property="delflg" />
+    <result column="fo_id" jdbcType="BIGINT" property="foId" />
+    <result column="order_id" jdbcType="VARCHAR" property="orderId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="creator_id" jdbcType="BIGINT" property="creatorId" />
+    <result column="modifier_id" jdbcType="BIGINT" property="modifierId" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from biz_bs_disc
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="cn.com.tcsl.canyin.summry.entity.BizBsDiscPO">
+    insert into biz_bs_disc (id, bs_id, disc_type, 
+      disc_scale, disc_money, dp_id, 
+      auth_emp_id, modify_time, create_shop_id, 
+      upload_flg, download_flg, delflg, 
+      fo_id, order_id, create_time, 
+      creator_id, modifier_id)
+    values (#{id,jdbcType=BIGINT}, #{bsId,jdbcType=BIGINT}, #{discType,jdbcType=SMALLINT}, 
+      #{discScale,jdbcType=NUMERIC}, #{discMoney,jdbcType=NUMERIC}, #{dpId,jdbcType=BIGINT}, 
+      #{authEmpId,jdbcType=BIGINT}, #{modifyTime,jdbcType=TIMESTAMP}, #{createShopId,jdbcType=INTEGER}, 
+      #{uploadFlg,jdbcType=SMALLINT}, #{downloadFlg,jdbcType=SMALLINT}, #{delflg,jdbcType=SMALLINT}, 
+      #{foId,jdbcType=BIGINT}, #{orderId,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{creatorId,jdbcType=BIGINT}, #{modifierId,jdbcType=BIGINT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.com.tcsl.canyin.summry.entity.BizBsDiscPO">
+    update biz_bs_disc
+    set bs_id = #{bsId,jdbcType=BIGINT},
+      disc_type = #{discType,jdbcType=SMALLINT},
+      disc_scale = #{discScale,jdbcType=NUMERIC},
+      disc_money = #{discMoney,jdbcType=NUMERIC},
+      dp_id = #{dpId,jdbcType=BIGINT},
+      auth_emp_id = #{authEmpId,jdbcType=BIGINT},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      create_shop_id = #{createShopId,jdbcType=INTEGER},
+      upload_flg = #{uploadFlg,jdbcType=SMALLINT},
+      download_flg = #{downloadFlg,jdbcType=SMALLINT},
+      delflg = #{delflg,jdbcType=SMALLINT},
+      fo_id = #{foId,jdbcType=BIGINT},
+      order_id = #{orderId,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      creator_id = #{creatorId,jdbcType=BIGINT},
+      modifier_id = #{modifierId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, bs_id, disc_type, disc_scale, disc_money, dp_id, auth_emp_id, modify_time, 
+    create_shop_id, upload_flg, download_flg, delflg, fo_id, order_id, create_time, creator_id, 
+    modifier_id
+    from biz_bs_disc
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, bs_id, disc_type, disc_scale, disc_money, dp_id, auth_emp_id, modify_time, 
+    create_shop_id, upload_flg, download_flg, delflg, fo_id, order_id, create_time, creator_id, 
+    modifier_id
+    from biz_bs_disc
+  </select>
+</mapper>

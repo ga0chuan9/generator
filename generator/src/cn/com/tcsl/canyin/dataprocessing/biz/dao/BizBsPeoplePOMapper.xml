@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.tcsl.canyin.dataprocessing.biz.dao.BizBsPeoplePOMapper">
+  <resultMap id="BaseResultMap" type="cn.com.tcsl.canyin.summry.entity.BizBsPeoplePO">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="bs_id" jdbcType="BIGINT" property="bsId" />
+    <result column="eater_type_id" jdbcType="BIGINT" property="eaterTypeId" />
+    <result column="eater_qty" jdbcType="INTEGER" property="eaterQty" />
+    <result column="delflg" jdbcType="SMALLINT" property="delflg" />
+    <result column="create_shop_id" jdbcType="INTEGER" property="createShopId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="creator_id" jdbcType="BIGINT" property="creatorId" />
+    <result column="upload_flg" jdbcType="SMALLINT" property="uploadFlg" />
+    <result column="download_flg" jdbcType="SMALLINT" property="downloadFlg" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from biz_bs_people
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="cn.com.tcsl.canyin.summry.entity.BizBsPeoplePO">
+    insert into biz_bs_people (id, bs_id, eater_type_id, 
+      eater_qty, delflg, create_shop_id, 
+      create_time, modify_time, creator_id, 
+      upload_flg, download_flg)
+    values (#{id,jdbcType=BIGINT}, #{bsId,jdbcType=BIGINT}, #{eaterTypeId,jdbcType=BIGINT}, 
+      #{eaterQty,jdbcType=INTEGER}, #{delflg,jdbcType=SMALLINT}, #{createShopId,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP}, #{creatorId,jdbcType=BIGINT}, 
+      #{uploadFlg,jdbcType=SMALLINT}, #{downloadFlg,jdbcType=SMALLINT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.com.tcsl.canyin.summry.entity.BizBsPeoplePO">
+    update biz_bs_people
+    set bs_id = #{bsId,jdbcType=BIGINT},
+      eater_type_id = #{eaterTypeId,jdbcType=BIGINT},
+      eater_qty = #{eaterQty,jdbcType=INTEGER},
+      delflg = #{delflg,jdbcType=SMALLINT},
+      create_shop_id = #{createShopId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      creator_id = #{creatorId,jdbcType=BIGINT},
+      upload_flg = #{uploadFlg,jdbcType=SMALLINT},
+      download_flg = #{downloadFlg,jdbcType=SMALLINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, bs_id, eater_type_id, eater_qty, delflg, create_shop_id, create_time, 
+    modify_time, creator_id, upload_flg, download_flg
+    from biz_bs_people
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, bs_id, eater_type_id, eater_qty, delflg, create_shop_id, create_time, 
+    modify_time, creator_id, upload_flg, download_flg
+    from biz_bs_people
+  </select>
+</mapper>
